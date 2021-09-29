@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="corona">
+<html ng-app="corona">
+<head>
+    <meta charset="UTF-8">
+    <title>Fill the Details</title>
+    <link rel = "icon" href ="https://www.searchpng.com/wp-content/uploads/2019/01/ICICI-Bank-PNG-Icon.png" type = "image/x-icon">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/w3.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/strap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Qoute.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="static/css/bootstrapoverride.css" rel="stylesheet" type="text/css" />
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/angular.js' %}"></script>
+    <script src="{% static 'js/angular-messages.js' %}"></script>
+    <script src="{% static 'js/kavachiquote.js' %}"></script>
+    <script src="{% static 'js/bootstrapverride.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="static/js/bootstrapverride.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <style type="text/css">
+     label{margin-left: 20px;}
+     datepicker > span:hover{cursor: pointer;}
+
+    .headdercss{
+     color: #007bff !important;
+    }
+    .pull-right {
+    float: right!important;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #333;
+}
+</style>
+
+
+
+<div class="topnav" id=" ">
+    <a href="< echo base_url();>" ><img class="w3-bar-item" src="https://buyuat.bharti-axagi.co.in/logo/logo.png" id="brand"></a>
+<div style="padding-top: 1px;">
+    <a  href="" style="margin-top: 10px;"><b><font size="5" color="white">Enrolment Form - Corona Kavach</font></b></a>
+    </div>
+</div>
+
+<style type="text/css">
+   #brand {
+/* width: 115px; */
+height: 70px;overflow: hidden; margin-top: -4px;
+}
+
+.mainsidesum{
+
+margin-top:2%;
+
+}
+.headdds{
+color: #003399;
+
+}
+.headdercss{
+  color: #007bff !important;
+}
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+ .disabled{
+    background-color: #d1d1d1;
+    color:#fff;
+    padding: 1px;
+    border-color: white;
+    border:1px;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+.rounded {
+    border-radius: 0.90rem!important;
+}
+dt, kbd kbd, label {
+    font-weight: bolder;
+}
+</style>
+<style type="text/css">
+  p{
+    color: #003399;
+    font-family: arial, sans-serif;
+    font-weight: 300;
+  }
+
+  .disabled{
+    background-color: #d1d1d1;
+    color:#fff;
+    padding: 1px;
+    border-color: white;
+    border:1px;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family:  arial, sans-serif;
+  font-weight: 300;
+  user-select: none;
+}
+td{
+    border: 1px black solid;
+    font-family: arial, sans-serif;
+}
+
+
+input[type=text]:focus {
+  border: 2px solid #7fb6e5;
+}
+
+input[type=select]:focus {
+  border: 2px solid #7fb6e5;
+}
+
+</style>
+
+</head>
+<body>
+   {% block content %}
+<div class=" ui container mt-5">
+<form  action="proposalform/" method="post" id="systemForm" name="quote_form"  autocomplete="off" corona:Kavachi:Enroll:Form  novalidate>
+    {%  csrf_token %}
+<!--<input type="hidden" name="<echo($this->security->get_csrf_token_name());>" value="<echo($this->security->get_csrf_hash());>" />-->
+  <br>
+  <p ><span class="required"> * </span>Please fill all details correctly </p>
+  <p ><span class="required"> * </span>The insurance is not effective until the proposal is accepted and full premium is received</p>
+  <br/>
+
+         <div class="row">
+
+               <div class="col-md-3">
+                <div class="form-group" >
+                     <label>Salutation
+                           <span class="required"> * </span>
+                     </label>
+                              <select id="insured_salutation" name="insured_salutation" class="form-control rounded input-sm" ng-model="insured_salutation" autocomplete="none" required>
+                                    <option value="" disabled selected>Please Select</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Ms">Ms</option>
+                                    <option value="Dr">Dr</option>
+                                    </select>
+                        <div ng-if="quote_form.$submitted || quote_form.insured_salutation.$dirty" ng-messages="quote_form.insured_salutation.$error" role="alert">
+                      <div ng-message="required" class="required">Please Select Salutation</div>
+                        </div>
+                  </div>
+               </div>
+
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label>First Name
+                     <span class="required"> * </span></label>
+                     <input  type="text" name="insured_first_name" id="insured_first_name"  ng-model="insured_first_name" class="form-control input-sm rounded" onkeypress='return restrictNumbers(event)' placeholder="First Name" autocomplete="none" ng-required="true" />
+                     <div ng-if="quote_form.$submitted || quote_form.insured_first_name.$dirty" ng-messages="quote_form.insured_first_name.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Enter First Name</div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>Middle Name </label>
+                     <input  type="text" name="insured_middle_name" id="insured_middle_name"  ng-model="insured_middle_name" class="form-control input-sm rounded" onkeypress='return restrictNumbers(event)' placeholder="Middle Name" autocomplete="none" />
+                     <!-- <div ng-if="quote_form.$submitted || quote_form.insured_middle_name.$dirty" ng-messages="quote_form.insured_middle_name.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Enter Middle Name</div>
+                     </div> -->
+                  </div>
+               </div>
+
+
+               <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>Last  Name
+                     <span class="required"> * </span></label>
+                     <input  type="text" name="insured_last_name" id="insured_last_name"  ng-model="insured_last_name" class="form-control input-sm rounded" onkeypress='return restrictNumbers(event)' placeholder="Last Name" autocomplete="none" ng-required="true" />
+                     <div ng-if="quote_form.$submitted || quote_form.insured_last_name.$dirty" ng-messages="quote_form.insured_last_name.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Enter Last Name</div>
+                     </div>
+                  </div>
+               </div>
+
+
+
+              <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>Policy start date <span class="">  </span></label>
+                     <input type="text" date:Picker id="policy_start_date" name="policy_start_date" get:Premium:Data  class="form-control rounded
+                     input-sm policy-start-date" placeholder="DD-MM-YYYY" ng-model="policy_start_date" required data-date-format="dd-mm-yyyy"  value=''>
+                     <div ng-if="quote_form.$submitted" ng-messages="quote_form.policy_start_date.$error"  class="required" role="alert">
+                        <div ng-message="" class="">Please Enter policy start date</div>
+                     </div>
+                      <div id="check-policy-date"></div>
+                  </div>
+               </div>
+
+
+
+              <div class="col-md-3">
+                     <div class="form-group" >
+                        <label>DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="insured_dob" name="insured_dob" self:Dob get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="insured_dob" data-date-format="dd-mm-yyyy" value=''required>
+                        <div ng-if="quote_form.$submitted || quote_form.insured_dob.$dirty " ng-messages="quote_form.insured_dob.$error" class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter DOB</div>
+                        </div>
+                        <div id="error-message-self" style="color:red;"></div>
+                     </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>Contact Number
+                      <span class="required"> * </span></label>
+                     <input type="text" id="insured_contact_number"    name="insured_contact_number" autocomplete="none" class="form-control rounded input-sm" placeholder="Contact Number"  onkeypress='return restrictAlphabets(event)'  ng-model="insured_contact_number"   required />
+                     <div ng-if="quote_form.$submitted || quote_form.insured_contact_number.$dirty" class="required" ng-messages="quote_form.insured_contact_number.$error" role="alert">
+                        <div ng-message="required" class="required">Please Enter Contact Number</div>
+                     </div>
+                     <div  class="required" id="contact"></div>
+                  </div>
+               </div>
+
+
+               <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>Mobile Number
+                      <span class="required"> * </span></label>
+                     <input type="text" id="insured_mobile_number"    name="insured_mobile_number" autocomplete="none" class="form-control rounded input-sm" placeholder="Mobile Number"  onkeypress='return restrictAlphabets(event)'  ng-model="insured_mobile_number" MaxLength="10" onkeyup="return mobile_validate(this.value);"  required />
+                     <div ng-if="quote_form.$submitted || quote_form.insured_mobile_number.$dirty" class="required"  ng-messages="quote_form.insured_mobile_number.$error" role="alert">
+                        <div ng-message="required" class="required">Please Enter Mobile Number</div>
+                     </div>
+                      <div  class="required" id="mobilewar"></div>
+                  </div>
+               </div>
+
+
+
+              <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>E-mail
+                      <span class="required"> * </span></label>
+                     <input type="text" id="insured_mail_id" autocomplete="none"  name="insured_mail_id"  class="form-control rounded input-sm" placeholder="E-mail" ng-model="insured_mail_id" onkeyup="return email_validate(this.value);" required>
+                      <div ng-if="quote_form.$submitted || quote_form.insured_mail_id.$dirty" class="required" ng-messages="quote_form.insured_mail_id.$error" role="alert">
+                       <div ng-message="required" class="required"> Please Enter Email</div>
+                        </div>
+                        <div class="required" id="emailwar"></div>
+                  </div>
+               </div>
+
+                 <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>Pincode
+                     <span class="required">*</span></label>
+                     <input  type="text" name="insured_pincode" id="insured_pincode" maxlength="6"  onkeypress='return restrictAlphabets(event)' ng-model="insured_pincode" class="form-control input-sm rounded" placeholder="Pincode"  required />
+                     <div ng-if="quote_form.$submitted || quote_form.insured_pincode.$dirty" ng-messages="quote_form.insured_pincode.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Enter Pincode</div>
+                     </div>
+                  </div>
+               </div>
+
+
+               <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>Address
+                     <span class="required">*</span></label>
+                     <input  type="text" name="insured_address" id="insured_address"  ng-model="insured_address" class="form-control input-sm rounded" placeholder="Address"  required />
+                     <div ng-if="quote_form.$submitted || quote_form.insured_address.$dirty" ng-messages="quote_form.insured_address.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Enter Address</div>
+                     </div>
+                  </div>
+               </div>
+
+
+               <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>City/Town
+                     <span class="required">*</span></label>
+                     <input  type="text" name="insured_city" id="insured_city"  onkeypress='return restrictNumbers(event)' ng-model="insured_city" class="form-control input-sm rounded" placeholder="City/Town"  required />
+                     <div ng-if="quote_form.$submitted || quote_form.insured_city.$dirty" ng-messages="quote_form.insured_city.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Enter Address</div>
+                     </div>
+                  </div>
+               </div>
+
+
+
+             <div class="col-md-3">
+                  <div class="form-group" >
+                      <label>State
+                       <span class="required"> * </span></label>
+                        <select   class="form-control rounded input-sm" >
+                            <option value='' disabled selected >Please Select State</option>
+
+                                {% for State in qs %}
+
+                                    <option>{{State.statesname}}</option>
+                                {% endfor %}
+
+
+                        </select>
+                   </div>
+              </div>
+
+
+
+
+            <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>District
+                     <span class="required"> * </span></label>
+                      <select id="insured_district" name="insured_district"  class="form-control rounded input-sm" ng-model="insured_district" placeholder="District"  required>
+                       <option value="" selected> </option>
+                          {% for results in showstates%}
+                            <option>{{results.america_city}}</option>
+                          {% endfor%}
+                     </select>
+                     <div ng-if="quote_form.$submitted" ng-messages="quote_form.insured_district.$error" role="alert">
+                        <div ng-message="required" class="required">Please Select District</div>
+                     </div>
+                  </div>
+             </div>
+
+
+
+
+
+               <div class="col-md-3">
+                  <div class="form-group" >
+                     <label>Nationality
+                      <!-- <span class="required"> * </span> --></label>
+                     <input type="text" id="insured_nationality" autocomplete="none"  onkeypress='return restrictNumbers(event)' name="insured_nationality"  class="form-control rounded input-sm" placeholder="Nationality" ng-model="insured_nationality">
+                      <!-- <div ng-if="quote_form.$submitted || quote_form.insured_nationality.$dirty" class="required" ng-messages="quote_form.insured_nationality.$error" role="alert">
+                       <div ng-message="required" class="required"> Please Enter Email</div>
+                        </div> -->
+                  </div>
+               </div>
+
+
+               <div class="col-md-3">
+                  <div class="form-group">
+                     <label>Annual Income
+                      <!-- <span class="required"> * </span> --></label>
+                     <input type="text" id="insured_annual_income" autocomplete="none" onkeypress='return restrictAlphabets(event)' name="insured_annual_income"  class="form-control rounded input-sm" placeholder="Annual Income" ng-model="insured_annual_income" >
+                      <!-- <div ng-if="quote_form.$submitted || quote_form.insured_annual_income.$dirty" class="required" ng-messages="quote_form.insured_annual_income.$error" role="alert">
+                       <div ng-message="required" class="required"> Please Enter Email</div>
+                        </div> -->
+                  </div>
+               </div>
+
+
+
+                <div class="col-md-3" >
+                  <div class="form-group" >
+                     <label>Profession <span class="required"> * </span> </label>
+                     <select id="insured_profession" name="insured_profession" class="form-control rounded input-sm" ng-model="insured_profession" autocomplete="none" required>
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="Salaried">Salaried</option>
+                          <option value="Self Employed">Self Employed</option>
+                          <option value="Others" >Others</option>
+                     </select>
+                     <div ng-if="quote_form.$submitted || quote_form.insured_profession.$dirty" ng-messages="quote_form.insured_profession.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Profession</div>
+                     </div>
+                  </div>
+               </div>
+
+
+              <div class="col-md-3" ng-show=" insured_profession == 'Others' ">
+                  <div class="form-group">
+                     <label>PAN Card  Number
+                      <span class="required"> * </span></label>
+                     <input type="text" id="insured_others_pancard" autocomplete="none"  name="insured_others_pancard"  class="form-control rounded input-sm" placeholder="PAN Card  Number" ng-model="insured_others_pancard" ng-required= " insured_profession == 'Others' " >
+                      <div ng-if="quote_form.$submitted || quote_form.insured_others_pancard.$dirty" class="required" ng-messages="quote_form.insured_others_pancard.$error" role="alert">
+                       <div ng-message="required" class="required"> Please Enter PAN Card  Number</div>
+                        </div>
+                  </div>
+               </div>
+
+                <div class="col-md-3" ng-show='insured_profession == "Others" '>
+                     <div class="form-group">
+                        <label>Proposer DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="insured_others_proposer_dob" name="insured_others_proposer_dob"  autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="insured_others_proposer_dob" data-date-format="dd-mm-yyyy" value='' ng-required= " insured_profession == 'Others' " >
+                        <div ng-if="quote_form.$submitted || quote_form.insured_others_proposer_dob.$dirty " ng-messages="quote_form.insured_others_proposer_dob.$error" class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter DOB</div>
+                        </div>
+                     </div>
+                </div>
+
+
+
+
+            <!--   <div class="col-md-3" >
+                  <div class="form-group" ng-init = 'insured_nationality = "<?php echo ($quotepage['insured_nationality'] ? base64_decode($quotepage['insured_nationality']) : ''); ?>" '>
+                     <label>Are you citizen of India?
+                     <<select id="insured_nationality" name="insured_nationality" class="form-control rounded input-sm" ng-model="insured_nationality" autocomplete="none">
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                     </select>
+                     <div ng-if="quote_form.$submitted || quote_form.insured_nationality.$dirty" ng-messages="quote_form.insured_nationality.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Nationality</div>
+                     </div>
+                  </div>
+               </div> -->
+
+
+               <div class="col-md-3" >
+                  <div class="form-group" >
+                     <label>Marital Status
+                     <!-- <span class="required"> * </span> --></label>
+                     <select id="insured_marital_status"  name="insured_marital_status" class="form-control rounded input-sm" ng-model="insured_marital_status" autocomplete="none" >
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="Single">Single</option>
+                          <option value="Married">Married</option>
+                     </select>
+                     <!-- <div ng-if="quote_form.$submitted || quote_form.insured_marital_status.$dirty" ng-messages="quote_form.insured_marital_status.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Marital Status</div>
+                     </div> -->
+                  </div>
+               </div>
+
+
+               <div class="col-md-3" >
+                  <div class="form-group">
+                     <label>Plan Type
+                     <span class="required"> * </span></label>
+                     <select id="insured_plan_type" name="insured_plan_type" class="form-control rounded input-sm" get:Premium:Data ng-model="insured_plan_type" autocomplete="none" required>
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="Individual">Individual</option>
+                          <option value="Family floater">Family Floater</option>
+                     </select>
+                     <div ng-if="quote_form.$submitted || quote_form.insured_plan_type.$dirty" ng-messages="quote_form.insured_plan_type.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Plan Type</div>
+                     </div>
+                  </div>
+               </div>
+
+
+               <div class="col-md-3" >
+                  <div class="form-group" >
+                     <label>Include Spouse
+                     <span class="required"> * </span></label>
+                     <select id="insured_spouse" name="insured_spouse" class="form-control rounded input-sm" get:Premium:Data ng-model="insured_spouse" autocomplete="none" required>
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                     </select>
+                     <div ng-if="quote_form.$submitted || quote_form.insured_spouse.$dirty"  ng-messages="quote_form.insured_spouse.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Include Spouse</div>
+                     </div>
+                  </div>
+               </div>
+
+
+                <div class="col-md-3" ng-show='insured_spouse == "Yes" '>
+                     <div class="form-group" >
+                        <label> Spouse DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="spouse_dob" name="spouse_dob" spouse:Dob get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="spouse_dob" data-date-format="dd-mm-yyyy" value='' ng-required="insured_spouse == 'Yes'  ">
+                        <div ng-if="quote_form.$submitted || quote_form.spouse_dob.$dirty " ng-messages="quote_form.spouse_dob.$error" iclass="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter DOB</div>
+                        </div>
+                        <div  style="color:red;"></div>
+                     </div>
+                </div>
+
+
+
+              <div class="col-md-3" style="margin-top: 22px;" >
+                 <label>Include Mother </label>
+                <input type="checkbox" name="include_mother" id="include_mother"  ng-model="include_mother" value="1" ng-checked="include_mother=='1'" />
+              </div>
+
+
+              <div class="col-md-3" ng-show='include_mother == "1" '>
+                     <div class="form-group" >
+                        <label>Mother DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="include_mother_in_dob" name="include_mother_in_dob" mother:Dob get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="include_mother_in_dob" data-date-format="dd-mm-yyyy" value='' ng-required="include_mother == '1' ">
+                        <div ng-if="quote_form.$submitted || quote_form.include_mother_in_dob.$dirty " ng-messages="quote_form.include_mother_in_dob.$error" class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter DOB</div>
+                        </div>
+                        <div id="error-message-mother" style="color:red;"></div>
+                     </div>
+                </div>
+
+
+
+                <div class="col-md-3" style="margin-top: 22px;" >
+                 <label>Include Mother in law </label>
+                <input type="checkbox" name="include_mother_in_law" id="include_mother_in_law"  ng-model="include_mother_in_law" value="1" ng-checked="include_mother_in_law=='1'" />
+              </div>
+
+
+              <div class="col-md-3" ng-show='include_mother_in_law == "1" '>
+                     <div class="form-group" >
+                        <label> Mother in law DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="include_mother_in_law_dob" name="include_mother_in_law_dob" mother:In:Law:Dob get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="include_mother_in_law_dob" data-date-format="dd-mm-yyyy" value='' ng-required="include_mother_in_law == '1' ">
+                        <div ng-if="quote_form.$submitted || quote_form.include_mother_in_law_dob.$dirty " ng-messages="quote_form.include_mother_in_law_dob.$error" class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter DOB</div>
+                        </div>
+                        <div id="error-message-mother-in-law" style="color:red;"></div>
+                     </div>
+                </div>
+
+
+              <div class="col-md-3" style=" margin-top: 22px;" >
+                 <label>Include Father</label>
+                <input type="checkbox" name="include_father" id="include_father"  ng-model="include_father" value="1"  ng-checked="include_father=='1'" />
+              </div>
+
+
+              <div class="col-md-3" ng-show='include_father == "1" '>
+                     <div class="form-group" >
+                        <label>Father DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="include_father_in_dob" name="include_father_in_dob" father:Dob get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="include_father_in_dob" data-date-format="dd-mm-yyyy" value='' ng-required="include_father == '1' ">
+                        <div ng-if="quote_form.$submitted || quote_form.include_father_in_dob.$dirty " ng-messages="quote_form.include_father_in_dob.$error" class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter DOB</div>
+                        </div>
+                        <div id="error-message-father" style="color:red;"></div>
+                     </div>
+                </div>
+
+
+
+                <div class="col-md-3" style=" margin-top: 22px;" >
+                 <label>Include Father in law</label>
+                <input type="checkbox" name="include_father_in_law" id="include_father_in_law"  ng-model="include_father_in_law" value="1"  ng-checked="include_father_in_law=='1'" />
+              </div>
+
+
+              <div class="col-md-3" ng-show='include_father_in_law == "1" '>
+                     <div class="form-group" >
+                        <label>Father in law DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="include_father_in_law_dob" name="include_father_in_law_dob" father:In:Law:Dob get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="include_father_in_law_dob" data-date-format="dd-mm-yyyy" value='' ng-required="include_father_in_law == '1' ">
+                        <div ng-if="quote_form.$submitted || quote_form.include_father_in_law_dob.$dirty " ng-messages="quote_form.include_father_in_law_dob.$error" class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter DOB</div>
+                        </div>
+                        <div id="error-message-father-in-law" style="color:red;"></div>
+                     </div>
+                </div>
+
+
+              <div class="col-md-3">
+                  <label>Include Children </label>
+                   <div class="form-group" ng-init='include_children_all = "0" ' >
+                     <select id="include_children_all" name="include_children_all" get:Premium:Data class="form-control rounded input-sm" ng-model="include_children_all" autocomplete="none" required>
+                          <option value="0" selected>0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                     </select>
+                    </div>
+              </div>
+
+
+
+               <div class="col-md-3" ng-show=" include_children_all == '1' || include_children_all == '2' || include_children_all == '3' || include_children_all == '4' || include_children_all == '5' ">
+                     <div class="form-group"  >
+                        <label>Child 1 DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="child1_dob" age:Child1:Calculate name="child1_dob" autocomplete="none"  get:Premium:Data class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="child1_dob" data-date-format="dd-mm-yyyy" value='' ng-required = "include_children_all == '1' || include_children_all == '2' || include_children_all == '3' || include_children_all == '4' || include_children_all == '5' " >
+                        <div ng-if="quote_form.$submitted || quote_form.child1_dob.$dirty " ng-messages="quote_form.child1_dob.$error"  class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter Child 1 DOB</div>
+                        </div>
+                        <div id="error-message-child1" style="color:red;"></div>
+                     </div>
+                </div>
+
+
+                 <div class="col-md-3" ng-show=" include_children_all == '2' || include_children_all == '3' || include_children_all == '4' || include_children_all == '5' ">
+                     <div class="form-group">
+                        <label>Child 2 DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="child2_dob" age:Child2:Calculate name="child2_dob" get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="child2_dob" data-date-format="dd-mm-yyyy" value='' ng-required = " include_children_all == '2' || include_children_all == '3' || include_children_all == '4' || include_children_all == '5' " >
+                        <div ng-if="quote_form.$submitted || quote_form.child2_dob.$dirty " ng-messages="quote_form.child2_dob.$error" class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter Child 2 DOB</div>
+                        </div>
+                        <div id="error-message-child2" style="color:red;"></div>
+                     </div>
+                </div>
+
+
+                 <div class="col-md-3" ng-show=" include_children_all == '3' || include_children_all == '4' || include_children_all == '5' ">
+                     <div class="form-group"  >
+                        <label>Child 3 DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="child3_dob" age:Child3:Calculate name="child3_dob" get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="child3_dob" data-date-format="dd-mm-yyyy" value='' ng-required = " include_children_all == '3' || include_children_all == '4' || include_children_all == '5' " >
+                        <div ng-if="quote_form.$submitted || quote_form.child3_dob.$dirty " ng-messages="quote_form.child3_dob.$error"  class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter Child 3 DOB</div>
+                        </div>
+                        <div id="error-message-child3" style="color:red;"></div>
+                     </div>
+                </div>
+
+                 <div class="col-md-3" ng-show=" include_children_all == '4' || include_children_all == '5' ">
+                     <div class="form-group"  >
+                        <label>Child 4 DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="child4_dob" age:Child4:Calculate name="child4_dob" get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="child4_dob" data-date-format="dd-mm-yyyy" value='' ng-required = "include_children_all == '4' || include_children_all == '5' " >
+                        <div ng-if="quote_form.$submitted || quote_form.child4_dob.$dirty " ng-messages="quote_form.child4_dob.$error"  class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter Child 4 DOB</div>
+                        </div>
+                        <div id="error-message-child4" style="color:red;"></div>
+                     </div>
+                </div>
+
+                 <div class="col-md-3" ng-show="include_children_all == '5' ">
+                     <div class="form-group" >
+                        <label>Child 5 DOB
+                          <span class="required"> * </span></label>
+                        <input type="text"  id="child5_dob" age:Child5:Calculate name="child5_dob"  get:Premium:Data autocomplete="none" class="form-control rounded input-sm custom-date-dob" placeholder="DD-MM-YYYY" ng-model="child5_dob" data-date-format="dd-mm-yyyy" value='' ng-required = "include_children_all == '5' " >
+                        <div ng-if="quote_form.$submitted || quote_form.child5_dob.$dirty " ng-messages="quote_form.child5_dob.$error" id="error-message-spouse" class="required" role="alert">
+                           <div ng-message="required" class="required">Please Enter Child 5 DOB</div>
+                        </div>
+                        <div id="error-message-child5" style="color:red;"></div>
+                     </div>
+                </div>
+
+
+<!--               <div class="col-md-3"  ng-show="include_father == '1' && include_mother == '1' && insured_plan_type == 'Family floater' ">
+                  <label>Include Childres</label>
+                   <div class="form-group" ng-init='include_childrens_family = "<?php echo ($quotepage['include_childrens_family'] ? base64_decode($quotepage['include_childrens_family']) : '0'); ?>"' >
+                   <div class="input-group" >
+                    <input type="text" id="include_childrens_family" name="include_childrens_family" class="form-control rounded input-sm" ng-model="include_childrens_family"  value="0" min="0" max="3" readonly style="border-radius: 7px;border-width: 1px;float: left; width: 184px; padding-top: -1px;height: 29px;margin-top: -3px;    padding-left: 10px;" />
+                    <div class="input-group-btn" style="float: left;" >
+                    <button type="button" id="up" class="btn btn-default" onclick="add_insured_childrens_family()" style="margin-left: 1px; border: none; padding-top: -1px;height: 29px;margin-top: -3px;" ><span class="glyphicon glyphicon-plus"></span></button>
+                  <button type="button" id="down" class="btn btn-default"  onclick="sub_insured_childrens_family()"  style=" border: none;padding-top: -1px;height: 29px;margin-top: -3px;"><span class="glyphicon glyphicon-minus"></span>  </button>
+                    </div>
+                    </div>
+                    </div>
+              </div>
+
+
+
+                <div class="col-md-3" ng-show=" insured_plan_type == 'Family floater' && (include_father != '1' || include_mother != '1') ">
+                  <label>Include Childres </label>
+                   <div class="form-group" ng-init='include_childrens3 = "<?php echo ($quotepage['include_childrens3'] ? base64_decode($quotepage['include_childrens3']) : '0'); ?>"' >
+                   <div class="input-group" >
+                    <input type="text" id="include_childrens3" name="include_childrens3" class="form-control rounded input-sm" ng-model="include_childrens3"  value="0" min="0" max="3" readonly style="border-radius: 7px;border-width: 1px;float: left; width: 184px; padding-top: -1px;height: 29px;margin-top: -3px;    padding-left: 10px;" />
+                    <div class="input-group-btn" style="float: left;" >
+                    <button type="button" id="up" class="btn btn-default" onclick="add_insured_childrens_family_3()" style="margin-left: 1px; border: none; padding-top: -1px;height: 29px;margin-top: -3px;" ><span class="glyphicon glyphicon-plus"></span></button>
+                  <button type="button" id="down" class="btn btn-default"  onclick="sub_insured_childrens_family_3()"  style=" border: none;padding-top: -1px;height: 29px;margin-top: -3px;"><span class="glyphicon glyphicon-minus"></span>  </button>
+                    </div>
+                    </div>
+                    </div>
+              </div>
+ -->
+
+
+               <div class="col-md-3" >
+                  <div class="form-group"  >
+                     <label>Tenure(In Months)
+                     <span class="required"> * </span></label>
+                     <select id="insured_tenure" name="insured_tenure" get:Premium:Data class="form-control rounded input-sm" ng-model="insured_tenure" autocomplete="none" required>
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="3.5">3.5</option>
+                          <option value="6.5">6.5</option>
+                          <option value="9.5">9.5</option>
+                     </select>
+                     <div ng-if="quote_form.$submitted || quote_form.insured_tenure.$dirty" ng-messages="quote_form.insured_tenure.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Tenure</div>
+                     </div>
+                  </div>
+               </div>
+
+
+                       <div class="col-md-3" >
+                  <div class="form-group" >
+                     <label>Sum Insured
+                     <span class="required"> * </span></label>
+                     <select id="insured_suminsured" name="insured_suminsured" get:Premium:Data class="form-control rounded input-sm" ng-model="insured_suminsured" autocomplete="none" required>
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="50000">50000</option>
+                         <option value="100000">100000</option>
+                         <option value="150000">150000</option>
+                         <option value="200000">200000</option>
+                         <option value="250000">250000</option>
+                         <option value="300000">300000</option>
+                         <option value="350000">350000</option>
+                         <option value="400000">400000</option>
+                         <option value="450000">450000</option>
+                         <option value="500000">500000</option>
+                     </select>
+                     <div ng-if="quote_form.$submitted || quote_form.insured_suminsured.$dirty" ng-messages="quote_form.insured_suminsured.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Sum Insured</div>
+                     </div>
+                  </div>
+               </div>
+                <div class="col-md-3" >
+                  <div class="form-group"  >
+                     <label>Hospital Daily Cash
+                     <span class="required"> * </span></label>
+                     <select id="insured_hospi_cash" name="insured_hospi_cash" get:Premium:Data class="form-control rounded input-sm" ng-model="insured_hospi_cash" autocomplete="none" required>
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                     </select>
+                     <div ng-if="quote_form.$submitted || quote_form.insured_hospi_cash.$dirty" ng-messages="quote_form.insured_hospi_cash.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Hospital Daily Cash</div>
+                     </div>
+                  </div>
+               </div>
+
+
+                <div class="col-md-3" >
+                  <div class="form-group"  >
+                     <label>Are you or any of the proposed member a health care worker
+                     <span class="required"> * </span></label>
+                     <select id="healthcard" name="healthcard" get:Premium:Data class="form-control rounded input-sm" ng-model="healthcard" autocomplete="none" required>
+                          <option value="" disabled selected>Please Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                     </select>
+                     <div ng-if="quote_form.$submitted || quote_form.healthcard.$dirty" ng-messages="quote_form.healthcard.$error" role="alert">
+                        <div ng-message="required" class="required"> Please Select Health card</div>
+                     </div>
+                  </div>
+               </div>
+
+
+              <div class="col-md-3">
+                  <div class="form-group"  >
+                     <label>Premium including GST
+                      <span class="required"> * </span></label>  <br><br>
+                     <input type="text" id="insured_premium"    name="insured_premium" autocomplete="none" class="form-control rounded input-sm" placeholder="Premium"   ng-model="insured_premium" readonly />
+                     <!-- <div ng-if="quote_form.$submitted || quote_form.insured_mobile_number.$dirty" class="required" id="mobilewar" ng-messages="quote_form.insured_mobile_number.$error" role="alert">
+                        <div ng-message="required" class="required">Please Enter Mobile Number</div>
+                     </div> -->
+                  </div>
+               </div>
+         </div>
+
+          <div class="pull-right">
+            <button type="button" style="display: none" class="btn blue btn-default " ng-model="pleasewaitButton" id="pleasewaitButton"  disabled>Please Wait..</button>
+            <button type="submit" class="btn blue btn-default" id="proceedbutton" >Proceed</button>
+            <div id="plan-error" style="color: red;"></div>
+          </div>
+
+</form>
+
+
+
+
+
+    </div>
+</div>
+{% endblock content %}
+
+
+
+<!-- function add_insured_member(){
+        var member_number = parseInt(document.getElementById('include_children_all').value);
+        if(member_number < 5){
+          document.getElementById('include_children_all').value= member_number +1 ;
+        }
+
+      }
+
+
+      function sub_insured_member(){
+        var member_number = parseInt(document.getElementById('include_children_all').value);
+         if(member_number >0){
+          document.getElementById('include_children_all').value= member_number -1 ;
+         }
+      }
+
+
+ /*      function add_insured_childrens(){
+        var member_number = parseInt(document.getElementById('include_children_all').value);
+        if(member_number < 5){
+          document.getElementById('include_children_all').value= member_number +1 ;
+        }
+
+        var member_number1 = parseInt(document.getElementById('include_children_all').value);
+      }
+
+
+
+
+      function add_insured_childrens_family(){
+        var member_number = parseInt(document.getElementById('include_childrens_family').value);
+        if(member_number < 5){
+          document.getElementById('include_childrens_family').value= member_number +1 ;
+        }
+        var member_number1 = parseInt(document.getElementById('include_childrens_family').value);
+
+      }
+
+     function sub_insured_childrens(){
+        var member_number = parseInt(document.getElementById('include_children_all').value);
+         if(member_number >0){
+          document.getElementById('include_children_all').value= member_number -1 ;
+         }
+
+           var includemother = $('input[name="include_mother"]:checked').val();
+            if(includemother == '1'){
+                var inmon = '1';
+            }else{
+              var inmon = '0';
+            }
+
+             var includefather = $('input[name="include_father"]:checked').val();
+            if(includefather == '1'){
+
+             var inmfat = '1';
+            }else{
+              var inmfat = '0';
+            }
+          var member_number2 = parseInt(document.getElementById('include_children_all').value);
+               }
+*/
+
+
+
+/*
+      function sub_insured_childrens_family(){
+        var member_number = parseInt(document.getElementById('include_childrens_family').value);
+         if(member_number >0){
+          document.getElementById('include_childrens_family').value= member_number -1 ;
+         }
+          var includemother = $('input[name="include_mother"]:checked').val();
+            if(includemother == '1'){
+                var inmon = '1';
+            }else{
+              var inmon = '0';
+            }
+             var includefather = $('input[name="include_father"]:checked').val();
+            if(includefather == '1'){
+
+             var inmfat = '1';
+            }else{
+              var inmfat = '0';
+            }
+         var member_number2 = parseInt(document.getElementById('include_childrens_family').value);
+
+      }
+
+
+
+    function add_insured_childrens_family_3(){
+        var member_number = parseInt(document.getElementById('include_childrens3').value);
+        if(member_number < 3){
+          document.getElementById('include_childrens3').value= member_number +1 ;
+        }
+        var member_number1 = parseInt(document.getElementById('include_childrens3').value);
+
+
+      }
+
+
+      function sub_insured_childrens_family_3(){
+        var member_number = parseInt(document.getElementById('include_childrens3').value);
+         if(member_number >0){
+          document.getElementById('include_childrens3').value= member_number -1 ;
+         }
+            var includemother = $('input[name="include_mother"]:checked').val();
+            if(includemother == '1'){
+                var inmon = '1';
+            }else{
+              var inmon = '0';
+            }
+             var includefather = $('input[name="include_father"]:checked').val();
+            if(includefather == '1'){
+             var inmfat = '1';
+            }else{
+              var inmfat = '0';
+            }
+
+          var member_number2 = parseInt(document.getElementById('include_childrens3').value);
+                } */
+-->
+
+
+</body>
+
+<script type="text/javascript">
+
+ function add_insured_member(){
+        var member_number = parseInt(document.getElementById('include_children_all').value);
+        if(member_number < 5){
+          document.getElementById('include_children_all').value= member_number +1 ;
+        }
+
+      }
+
+
+      function sub_insured_member(){
+        var member_number = parseInt(document.getElementById('include_children_all').value);
+         if(member_number >0){
+          document.getElementById('include_children_all').value= member_number -1 ;
+         }
+      }
+
+       var kavachi = angular.module('corona',["ngMessages"]);
+  var pathname = ' http://127.0.0.1:8000/';
+   var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace('/++[++^A-Za-z0-9+/=]/g',"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace('/\r\n/g',"n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+kavachi.directive('selfDob',function(){
+    return{
+      restrict : 'AE',
+      link : function(scope,element,attr){
+        element.on('change',function(){
+          var _parentChange = $(this);
+          var birthDate = _parentChange.val();
+          var ghaselfdob = calculateAge(birthDate);
+          if(ghaselfdob < 18 || ghaselfdob >=66){
+           $('#error-message-self').html('').append('Please Enter DOB Between 18 to 65Years');
+            return false;
+          } else {
+            $('#error-message-self').html('');
+          }
+        });
+      }
+    }
+  });
+</script>
+<script>
+    $(function(){
+    $( ".policy-start-date" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                todayHighlight: true,
+                autoclose: true,
+                startDate: "today",
+                endDate  : new Date(Date.now() + 60 * 24*60*60*1000)
+   });
+    $( ".custom-date-dob" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                todayHighlight: true,
+                autoclose: true,
+    endDate  : new Date()
+   });
+  });
+ </script>
+
+
+</html>
